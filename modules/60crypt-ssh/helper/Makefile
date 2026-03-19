@@ -19,9 +19,6 @@ clean:
 console_auth:	auth.c
 	$(CC) $(CFLAGS) $^ -o $@
 
-unlock:	crypttab.o unlock.o
-	$(CC) $(CFLAGS) $^ -lblkid -o $@
-
 crypttab-test: crypttab-test.c crypttab.o crypttab-test-data
 	$(CC) crypttab-test.c $(CFLAGS) crypttab.o -lblkid -o crypttab-test
 	./crypttab-test
