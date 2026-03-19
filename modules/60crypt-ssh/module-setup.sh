@@ -127,6 +127,9 @@ install() {
     return 1
   fi
 
+  # fix shells (otherwise dropbear complains about invalid user profiles)
+  echo "/bin/bash" > ${initdir}/etc/shells
+
   #install the required helpers
   inst "$moddir"/helper/console_auth /bin/console_auth
   inst "$moddir"/helper/console_peek.sh /bin/console_peek
